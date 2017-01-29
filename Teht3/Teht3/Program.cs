@@ -66,7 +66,7 @@ namespace Teht3
                         reaali = System.Convert.ToDouble(luku);
                         reaaliluvut.Add(reaali);
                     }
-                    else if (onLuku == true && tyhjä != false)
+                    else
                     {
                         kokonaisluku = System.Convert.ToInt32(luku);
                         kokonaisluvut.Add(kokonaisluku);
