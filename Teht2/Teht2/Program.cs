@@ -18,26 +18,14 @@ namespace Teht2
             string[] lines = System.IO.File.ReadAllLines(@"C:\testi.txt");
             int numberOfLines = lines.Length;
             List<string> nimet = new List<string>();
-            //string check = lines[0];
-            //while kaikki nimet käyty läpi
-            //nimet.Add(lines[0]);
-            //int namecount = 0;
             List<int> nimiLukema = new List<int>();
             for(int i = 0; i < numberOfLines; i++)
             {
-                //if(nimet[0] == lines[i])
-                //{
-                //    namecount++;
-                //}
-                if(nimet.Contains(lines[i]) == false) //&& nimi ei löydy nimet listasta nimet.Find
+                if(nimet.Contains(lines[i]) == false)
                 {
                     nimet.Add(lines[i]);
                     nimiLukema.Add(0);
                 }
-                //else if(nimet.Contains(lines[i]) == true)
-                //{
-                //    nimiLukema[0]++;
-                //}
             }
             int numberOfNames = nimet.Count;
             for(int x = 0; x < numberOfNames; x++)
