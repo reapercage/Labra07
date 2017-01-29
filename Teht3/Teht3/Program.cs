@@ -82,7 +82,7 @@ namespace Teht3
             }
             tiedosto.Close();
             System.IO.StreamWriter tiedosto2 = new System.IO.StreamWriter("reaaliluvut.txt");
-            foreach (int tupu in reaaliluvut)
+            foreach (double tupu in reaaliluvut)
             {
                 tiedosto2.WriteLine(tupu);
             }
