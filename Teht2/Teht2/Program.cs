@@ -13,24 +13,50 @@ namespace Teht2
             //File.Exist
             //string curFile = @"c:\testi.txt";
             //Console.WriteLine(File.Exists(curFile) ? "File exists." : "File does not exist.");
+
+            //Luetaan tiedoston rivit taulukkoon
             string[] lines = System.IO.File.ReadAllLines(@"C:\testi.txt");
             int numberOfLines = lines.Length;
-            //tilalle dynaaminen list
             List<string> nimet = new List<string>();
-            string check = lines[0];
-            nimet.Add(check);
-            int namecount = 0;
+            //string check = lines[0];
+            //while kaikki nimet käyty läpi
+            //nimet.Add(lines[0]);
+            //int namecount = 0;
+            List<int> nimiLukema = new List<int>();
             for(int i = 0; i < numberOfLines; i++)
             {
-                if(check == lines[i])
+                //if(nimet[0] == lines[i])
+                //{
+                //    namecount++;
+                //}
+                if(nimet.Contains(lines[i]) == false) //&& nimi ei löydy nimet listasta nimet.Find
                 {
-                    namecount++;
+                    nimet.Add(lines[i]);
+                    nimiLukema.Add(0);
+                }
+                //else if(nimet.Contains(lines[i]) == true)
+                //{
+                //    nimiLukema[0]++;
+                //}
+            }
+            int numberOfNames = nimet.Count;
+            for(int x = 0; x < numberOfNames; x++)
+            {
+                for(int i = 0; i < numberOfLines; i++)
+                {
+                    if (lines[i] == nimet[x])
+                    {
+                        nimiLukema[x]++;
+                    }
                 }
             }
-            Console.WriteLine("Tiedosto testi.txt sisältää " + numberOfLines + " riviä ja " + namecount + " " + check + " nimeä.");
-            Console.WriteLine("testi.txt:\n" + lines[0]);
-            Console.WriteLine("\n" + nimet[0]);
-            //if string[0]
+            //
+            Console.WriteLine("Tiedosto testi.txt sisältää " + numberOfLines + " riviä ja "
+                               + nimet.Count + " nimeä.\n");
+            for(int i = 0; i < nimet.Count; i++)
+            {
+                Console.WriteLine(nimet[i] + " on kirjoitettu " + nimiLukema[i] + " kertaa");
+            }
             Console.ReadKey();
         }
     }
