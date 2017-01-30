@@ -26,8 +26,8 @@ namespace Teht3
                 Console.Write("Anna luku > ");
                 luku = Console.ReadLine();
                 //. ei toimi if . muuta se ,
-
-                if (luku == "exit")
+                //string.empty
+                if (luku == "")
                 {
                     onLuku = false;
                     break;
