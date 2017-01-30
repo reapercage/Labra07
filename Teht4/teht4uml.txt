@@ -1,0 +1,6 @@
+tv-ohjelma
+-nimi
+-kanava
+-alku klo
+-loppu klo
+-info
