@@ -10,33 +10,39 @@ namespace Teht1
     {
         static void Main(string[] args)
         {
-            bool jatketaan = true;
-            List<string> lines = new List<string>();
-            string line;
-            while(jatketaan)
+            try
             {
-                Console.Write("Gimme your line (exg to exit) > ");
-                line = Console.ReadLine();
-                if(line == "exg")
+                bool jatketaan = true;
+                List<string> lines = new List<string>();
+                string line;
+                while (jatketaan)
                 {
-                    jatketaan = false;
+                    Console.Write("Gimme your line (exg to exit) > ");
+                    line = Console.ReadLine();
+                    if (line == "exg")
+                    {
+                        jatketaan = false;
+                    }
+                    else
+                    {
+                        lines.Add(line);
+                    }
                 }
-                else
+                //tiedostoon kirjoittaminen
+                System.IO.StreamWriter tiedosto = new System.IO.StreamWriter("lines.txt");
+                foreach (string laini in lines)
                 {
-                    lines.Add(line);
+                    tiedosto.WriteLine(laini);
                 }
-            }
-            //tiedostoon kirjoittaminen
-            System.IO.StreamWriter tiedosto = new System.IO.StreamWriter("lines.txt");
-            foreach(string laini in lines)
+                tiedosto.Close();
+                //tiedoston lukeminen
+                string text = System.IO.File.ReadAllText("lines.txt");
+                System.Console.WriteLine("\nlines.txt:\n" + text);
+                Console.ReadKey();
+            } catch (Exception ex)
             {
-                tiedosto.WriteLine(laini);
+                Console.WriteLine(ex.Message);
             }
-            tiedosto.Close();
-            //tiedoston lukeminen
-            string text = System.IO.File.ReadAllText("lines.txt");
-            System.Console.WriteLine("\nlines.txt:\n" + text);
-            Console.ReadKey();
         }
     }
 }
